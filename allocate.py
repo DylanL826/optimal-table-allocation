@@ -18,9 +18,10 @@ for j in range(1,len(tables)+1): # No guests
 for i in range (1, num_guests+1):
     for j in range (1, len(tables)+1):
         # j'th table seats i (remaining) guests, avoid negative indexing.
-        if i-tables[j-1] <= 0:
-            #T[i][j] = min(T[i-tables[j-1]][j-1] + 1, T[i][j-1])
-            T[i][j] = 1
+        # TODO: Add empty seats to T[i][j] to minimize.
+        if i-tables[j-1] <= 0:            
+            #T[i][j] = min(T[i-tables[j-1]][j-1] + 1, T[i][j-1])        
+            T[i][j] = 1 + (abs(i-tables[j-1]))
         else: # take the minimum table of table included or not included solutions.
             T[i][j] = min(T[i-tables[j-1]][j-1] + 1, T[i][j-1])
 answer = [0] * len(tables)
