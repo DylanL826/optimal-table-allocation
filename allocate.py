@@ -1,5 +1,5 @@
-tables = [2, 2, 3, 7]
-num_guests = 6
+tables = [2, 2, 3, 10]
+num_guests = 5
 # T is matrix of optimal solutions for ea/ num_guests, tables subset pair.
 # With solutions for 0 guests & 0 no tables prepended.
 T = [[None] * (len(tables)+1) for _ in range(num_guests+1)]
